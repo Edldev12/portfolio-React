@@ -1,0 +1,98 @@
+/* ================= HEADER ================= */
+
+header {
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background-color: #ffffff;
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* ================= NAVIGATION ================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #16a34a;
+}
+
+/* ================= MENU BUTTON ================= */
+
+.menu-btn {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+  color: #222;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .menu-btn {
+    display: block;
+    order: 2;
+  }
+
+  .logo {
+    order: 1;
+    font-size: 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 25px 0;
+    background-color: #ffffff;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 17px;
+  }
+}
