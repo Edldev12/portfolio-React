@@ -1,0 +1,27 @@
+/* ================= FOOTER ================= */
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #111827;
+  color: #ffffff;
+}
+
+footer h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+footer p {
+  margin: 10px 0;
+  color: #d1d5db;
+}
+
+.footer-links {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.footer-links:hover {
+  color: #16a34a;
+}
