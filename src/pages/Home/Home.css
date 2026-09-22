@@ -1,0 +1,135 @@
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 80vh;
+  padding: 80px 60px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* ================= HERO TEXT ================= */
+
+.hero-text {
+  flex: 1;
+}
+
+.welcome {
+  color: #16a34a;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin: 0 0 15px;
+  color: #111827;
+}
+
+.hero-text h1 span {
+  color: #16a34a;
+}
+
+.hero-text h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #374151;
+}
+
+.hero-text>p:not(.welcome) {
+  max-width: 650px;
+  color: #6b7280;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ================= BUTTONS ================= */
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 8px;
+  background-color: #16a34a;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+}
+
+/* ================= HERO IMAGE ================= */
+
+.hero-image {
+  flex: 0 0 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-photo {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #16a34a;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+  }
+
+  .hero-text h2 {
+    font-size: 23px;
+  }
+
+  .hero-text>p:not(.welcome) {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    flex: none;
+  }
+
+  .profile-photo {
+    width: 250px;
+    height: 250px;
+  }
+}
