@@ -1,22 +1,43 @@
 /* Container & Background Settings */
+/* Home.css */
+
+/* Home Container frame */
 .hero {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
-  background-color: #0f172a;
-  /* Dark navy background */
-  color: #f8fafc;
+  overflow: hidden;
+  background-color: var(--bg-dark, #070c1b);
 }
 
+/* Stretches Starfield canvas only within the Home section */
+.hero>.starfield-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  /* Mouse clicks pass through to text & buttons */
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Keeps Home text, buttons, and profile photo on top of the canvas */
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 1200px;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
+  padding: 0 20px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 /* Left Side: Typography */

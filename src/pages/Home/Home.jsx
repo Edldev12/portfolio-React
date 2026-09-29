@@ -1,62 +1,36 @@
+import StarfieldVisual from "../../components/hero/StarfieldVisual";
 import "./Home.css";
-import profileImage from "../../assets/edlawit imag.jpg";
+
 function Home() {
   return (
     <section id="home" className="hero">
+      {/* Starfield canvas isolated to the Home section only */}
+      <StarfieldVisual />
+
       <div className="hero-content">
-
-        {/* Left Side */}
         <div className="hero-text">
-
-          <p className="welcome">
-            👋 Welcome to my portfolio
-          </p>
-
+          <p className="welcome">Hi, I'm</p>
           <h1>
-            Hi, I'm <span>Edlawit Tsegaye</span>
+            <span> Edlawit </span>Tsegaye
           </h1>
-
-          <h2><span>Software Engineering </span>Student</h2>
-
+          <h2>Software Engineering Student | Full-Stack Developer</h2>
           <p>
-            I build modern web applications and enjoy solving
-            real-world problems through software development.
-          </p>
-
-          <p>
-            Currently learning Python, Java, JavaScript,
-            Spring Boot, React, and MySQL.
+            Passionate about building responsive, modern web applications with clean architecture and interactive UI/UX experiences.
           </p>
 
           <div className="hero-buttons">
-
-            <a href="#projects" className="btn">
-              🚀 View Projects
-            </a>
-
-            <a
-              href="/Edlawit Tsegaye CV.pdf"
-              download
-              className="btn"
-            >
-              📄 Download CV
-            </a>
-
+            <a href="#projects" className="btn">View Projects</a>
+            <a href="#contact" className="btn btn-outline">Contact Me</a>
           </div>
-
         </div>
 
-        {/* Right Side */}
         <div className="hero-image">
-
           <img
-            src={profileImage}
+            src="src\assets\edlawit imag.jpg"
             alt="Edlawit Tsegaye"
             className="profile-photo"
           />
-
         </div>
-
       </div>
     </section>
   );
