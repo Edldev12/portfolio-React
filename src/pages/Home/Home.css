@@ -1,123 +1,120 @@
-/* ================= HERO ================= */
-
+/* Container & Background Settings */
 .hero {
-  min-height: 80vh;
-  padding: 80px 60px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background-color: #0f172a;
+  /* Dark navy background */
+  color: #f8fafc;
 }
 
 .hero-content {
-  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
 }
 
-/* ================= HERO TEXT ================= */
-
-.hero-text {
-  flex: 1;
-}
-
-.welcome {
-  color: #16a34a;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 20px;
+/* Left Side: Typography */
+.hero-text .welcome {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #38bdf8;
+  /* Light blue accent */
+  margin-bottom: 0.75rem;
 }
 
 .hero-text h1 {
-  font-size: 52px;
+  font-size: 3.25rem;
+  font-weight: 700;
   line-height: 1.2;
-  margin: 0 0 15px;
-  color: #111827;
+  margin-bottom: 0.5rem;
 }
 
 .hero-text h1 span {
-  color: #16a34a;
+  color: #38bdf8;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-text h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #374151;
+  font-size: 1.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
-.hero-text>p:not(.welcome) {
-  max-width: 650px;
-  color: #6b7280;
-  font-size: 17px;
-  line-height: 1.7;
+.hero-text p {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 540px;
 }
 
-/* ================= BUTTONS ================= */
-
+/* Buttons */
 .hero-buttons {
   display: flex;
-  gap: 15px;
-  margin-top: 30px;
+  gap: 1rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
 }
 
 .btn {
   display: inline-block;
-  padding: 13px 22px;
+  padding: 0.8rem 1.6rem;
   border-radius: 8px;
-  background-color: #16a34a;
-  color: white;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #2563eb;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
 }
 
 .btn:hover {
-  background-color: #15803d;
+  background-color: #1d4ed8;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* ================= HERO IMAGE ================= */
-
+/* Right Side: Profile Image */
 .hero-image {
-  flex: 0 0 380px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .profile-photo {
-  width: 350px;
-  height: 350px;
+  width: 320px;
+  height: 320px;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid #16a34a;
+  border: 4px solid #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+  transition: transform 0.3s ease;
 }
 
-/* ================= MOBILE ================= */
+.profile-photo:hover {
+  transform: scale(1.03);
+}
 
-@media (max-width: 768px) {
-  .hero {
-    padding: 60px 20px;
-  }
-
+/* Responsive Design for Mobile & Tablets */
+@media (max-width: 968px) {
   .hero-content {
-    flex-direction: column-reverse;
+    grid-template-columns: 1fr;
     text-align: center;
+    gap: 2.5rem;
   }
 
-  .hero-text h1 {
-    font-size: 38px;
-  }
-
-  .hero-text h2 {
-    font-size: 23px;
-  }
-
-  .hero-text>p:not(.welcome) {
-    font-size: 16px;
+  .hero-text p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-buttons {
@@ -125,11 +122,20 @@
   }
 
   .hero-image {
-    flex: none;
+    order: -1;
+    /* Shows image above text on smaller screens */
   }
 
   .profile-photo {
-    width: 250px;
-    height: 250px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.4rem;
   }
 }
