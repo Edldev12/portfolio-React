@@ -1,4 +1,5 @@
 import StarfieldVisual from "../../components/hero/StarfieldVisual";
+import profileImage from "./assets/photo.png";
 import "./Home.css";
 
 function Home() {
@@ -31,7 +32,7 @@ function Home() {
         <div className="hero-image-wrapper">
           <div className="image-frame-glow">
             <img
-              src="src\assets\photo.png"
+              src={profileImage}
               alt="Edlawit Tsegaye"
               className="profile-photo"
             />
