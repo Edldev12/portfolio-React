@@ -1,34 +1,44 @@
-// src/components/skills/Skills.jsx
-
 import { skills } from "../../data/skillsData";
 import "./Skills.css";
 
 function Skills() {
   return (
     <section id="skills" className="skills-section">
-      <h2 className="section-title">
-        <span>//</span> MY SKILLS
-      </h2>
+      <div className="skills-heading">
+        <span className="section-label">// MY SKILLS</span>
+
+        <h2>
+          Technologies I <span>Work With</span>
+        </h2>
+
+        <p>
+          Technologies and tools I use to build modern,
+          scalable, and user-focused applications.
+        </p>
+      </div>
 
       <div className="skills-grid">
         {skills.map((skill, index) => {
           const IconComponent = skill.icon;
 
           return (
-            <div key={index} className="skill-card">
-
-              {/* Icon */}
-              <div
-                className="skill-icon"
-                style={{ "--icon-hover-color": skill.color }}
-              >
-                <IconComponent />
-              </div>
-
+            <div className="skill-item" key={index}>
               {/* Skill name + percentage */}
               <div className="skill-header">
-                <p className="skill-name">{skill.name}</p>
-                <span className="skill-level">{skill.level}%</span>
+                <div className="skill-title">
+                  <div
+                    className="skill-icon"
+                    style={{ color: skill.color }}
+                  >
+                    <IconComponent />
+                  </div>
+
+                  <span>{skill.name}</span>
+                </div>
+
+                <span className="skill-level">
+                  {skill.level}%
+                </span>
               </div>
 
               {/* Progress bar */}
@@ -37,12 +47,9 @@ function Skills() {
                   className="skill-progress-bar"
                   style={{
                     width: `${skill.level}%`,
-                    backgroundColor: skill.color,
-                    boxShadow: `0 0 10px ${skill.color}`,
                   }}
                 />
               </div>
-
             </div>
           );
         })}

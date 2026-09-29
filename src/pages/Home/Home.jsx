@@ -31,7 +31,7 @@ function Home() {
         <div className="hero-image-wrapper">
           <div className="image-frame-glow">
             <img
-              src="src\assets\profile.jpg"
+              src="src\assets\photo.png"
               alt="Edlawit Tsegaye"
               className="profile-photo"
             />
