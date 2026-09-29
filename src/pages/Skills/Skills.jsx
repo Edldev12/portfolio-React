@@ -1,84 +1,51 @@
+// src/components/skills/Skills.jsx
+
+import { skills } from "../../data/skillsData";
 import "./Skills.css";
 
 function Skills() {
   return (
-    <section id="skills" className="section">
-      <h2>My Skills</h2>
+    <section id="skills" className="skills-section">
+      <h2 className="section-title">
+        <span>//</span> MY SKILLS
+      </h2>
 
-      <p className="skills-intro">
-        Technologies and tools I use while learning and building
-        software projects.
-      </p>
+      <div className="skills-grid">
+        {skills.map((skill, index) => {
+          const IconComponent = skill.icon;
 
-      <div className="skills-container">
+          return (
+            <div key={index} className="skill-card">
 
-        {/* Programming Languages */}
-        <div className="skill-card">
-          <div className="skill-icon">💻</div>
+              {/* Icon */}
+              <div
+                className="skill-icon"
+                style={{ "--icon-hover-color": skill.color }}
+              >
+                <IconComponent />
+              </div>
 
-          <h3>Programming Languages</h3>
+              {/* Skill name + percentage */}
+              <div className="skill-header">
+                <p className="skill-name">{skill.name}</p>
+                <span className="skill-level">{skill.level}%</span>
+              </div>
 
-          <ul>
-            <li>🐍 Python</li>
-            <li>☕ Java</li>
-            <li>🟨 JavaScript</li>
-            <li>📘 C++</li>
-          </ul>
-        </div>
+              {/* Progress bar */}
+              <div className="skill-progress">
+                <div
+                  className="skill-progress-bar"
+                  style={{
+                    width: `${skill.level}%`,
+                    backgroundColor: skill.color,
+                    boxShadow: `0 0 10px ${skill.color}`,
+                  }}
+                />
+              </div>
 
-        {/* Frontend Development */}
-        <div className="skill-card">
-          <div className="skill-icon">🌐</div>
-
-          <h3>Frontend Development</h3>
-
-          <ul>
-            <li>🔹 HTML</li>
-            <li>🎨 CSS</li>
-            <li>⚡ JavaScript</li>
-            <li>⚛️ React</li>
-            <li>▲ Next.js (Learning)</li>
-          </ul>
-        </div>
-
-        {/* Backend Development */}
-        <div className="skill-card">
-          <div className="skill-icon">⚙️</div>
-
-          <h3>Backend Development</h3>
-
-          <ul>
-            <li>🍃 Spring Boot (Learning)</li>
-            <li>🐍 Python Backend</li>
-          </ul>
-        </div>
-
-        {/* Database */}
-        <div className="skill-card">
-          <div className="skill-icon">🗄️</div>
-
-          <h3>Database</h3>
-
-          <ul>
-            <li>🐬 MySQL</li>
-          </ul>
-        </div>
-
-        {/* Development Tools */}
-        <div className="skill-card">
-          <div className="skill-icon">🛠️</div>
-
-          <h3>Development Tools</h3>
-
-          <ul>
-            <li>🔧 Git</li>
-            <li>🐙 GitHub</li>
-            <li>💻 VS Code</li>
-            <li>☕ IntelliJ IDEA</li>
-            <li>📮 Postman</li>
-          </ul>
-        </div>
-
+            </div>
+          );
+        })}
       </div>
     </section>
   );

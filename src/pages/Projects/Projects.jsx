@@ -1,9 +1,12 @@
+import { useState } from "react";
 import "./Projects.css";
 
 import calculatorImage from "../../assets/calculator.png";
 import portfolioImage from "../../assets/portfolio.png";
 
 function Projects() {
+  const [showAll, setShowAll] = useState(false);
+
   const projects = [
     {
       title: "🧮 Calculator Web App",
@@ -90,6 +93,10 @@ function Projects() {
     },
   ];
 
+  const visibleProjects = showAll
+    ? projects
+    : projects.slice(0, 3);
+
   return (
     <section id="projects" className="section projects-section">
       <h2>My Projects</h2>
@@ -100,9 +107,8 @@ function Projects() {
       </p>
 
       <div className="projects-container">
-        {projects.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <div className="project-card" key={index}>
-
             {project.image && (
               <img
                 src={project.image}
@@ -121,7 +127,6 @@ function Projects() {
               </p>
 
               <div className="project-links">
-
                 {project.github && (
                   <a
                     href={project.github}
@@ -141,14 +146,24 @@ function Projects() {
                     Live Demo
                   </a>
                 )}
-
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* View All / Show Less Button */}
+      <div className="projects-button-container">
+        <button
+          className="view-projects-btn"
+          onClick={() => setShowAll(!showAll)}
+        >
+          {showAll ? "Show Less" : "View All Projects"}
+        </button>
       </div>
     </section>
   );
 }
 
 export default Projects;
+
