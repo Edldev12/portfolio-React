@@ -1,98 +1,114 @@
-/* ================= HEADER ================= */
+/* Header.css */
 
-header {
+:root {
+  --bg-dark: #070c1b;
+  --card-bg: #0b1329;
+  --accent-cyan: #00d2ff;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --border-glow: rgba(0, 210, 255, 0.25);
+}
+
+/* HEADER CONTAINER - Compact height */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  z-index: 1000;
+  background-color: rgba(7, 12, 27, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-glow);
 }
 
 .navbar {
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  /* Reduced vertical padding from 15px to 8px */
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 20px 60px;
-  background-color: #ffffff;
+  align-items: center;
 }
 
-/* ================= LOGO ================= */
-
+/* LOGO */
 .logo {
   margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  color: #222;
+  line-height: 1;
 }
 
-/* ================= NAVIGATION ================= */
+.logo a {
+  font-size: 1.5rem;
+  /* Reduced font size from 1.5rem */
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
 
+/* NAV LINKS (DESKTOP) */
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 30px;
   list-style: none;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
 
-.nav-links a {
+.nav-links li a {
+  color: var(--text-secondary);
   text-decoration: none;
-  color: #222;
-  font-size: 16px;
+  font-size: 0.88rem;
+  /* Slightly smaller text for compact layout */
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #16a34a;
+.nav-links li a:hover {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
 }
 
-/* ================= MENU BUTTON ================= */
-
+/* MENU BUTTON (MOBILE) */
 .menu-btn {
   display: none;
+  background: none;
   border: none;
-  background: transparent;
-  font-size: 28px;
+  color: var(--accent-cyan);
+  font-size: 1.4rem;
   cursor: pointer;
-  color: #222;
+  outline: none;
+  padding: 0;
+  line-height: 1;
 }
 
-/* ================= MOBILE ================= */
-
+/* MOBILE RESPONSIVE STYLES */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 15px 20px;
-  }
-
   .menu-btn {
     display: block;
-    order: 2;
-  }
-
-  .logo {
-    order: 1;
-    font-size: 20px;
   }
 
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     width: 100%;
-
-    display: none;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-glow);
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-
-    padding: 25px 0;
-    background-color: #ffffff;
+    padding: 12px 0;
+    /* Reduced mobile menu vertical padding */
+    gap: 12px;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   }
 
   .nav-links.active {
     display: flex;
-  }
-
-  .nav-links a {
-    font-size: 17px;
   }
 }
