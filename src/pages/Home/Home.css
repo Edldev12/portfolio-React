@@ -1,7 +1,4 @@
-/* Container & Background Settings */
-/* Home.css */
-
-/* Home Container frame */
+/* Container & Canvas Settings */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -9,10 +6,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--bg-dark, #070c1b);
+  background-color: #070c1b;
+  padding: 60px 20px;
 }
 
-/* Stretches Starfield canvas only within the Home section */
 .hero>.starfield-canvas {
   position: absolute;
   top: 0;
@@ -21,54 +18,50 @@
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  /* Mouse clicks pass through to text & buttons */
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
 }
 
-/* Keeps Home text, buttons, and profile photo on top of the canvas */
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 1200px;
   width: 100%;
-  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 30px;
 }
 
-/* Left Side: Typography */
+/* Left Typography */
+.hero-text {
+  flex: 1;
+}
+
 .hero-text .welcome {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #38bdf8;
-  /* Light blue accent */
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #00d2ff;
+  letter-spacing: 2px;
   margin-bottom: 0.75rem;
+  text-transform: uppercase;
 }
 
 .hero-text h1 {
-  font-size: 3.25rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
 }
 
-.hero-text h2 span,
 .hero-text h1 span {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: #00d2ff;
+  text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
 }
 
 .hero-text h2 {
-  font-size: 1.75rem;
+  font-size: 1.35rem;
   color: #94a3b8;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 1.5rem;
 }
 
@@ -76,63 +69,97 @@
   font-size: 1.05rem;
   color: #cbd5e1;
   line-height: 1.6;
-  margin-bottom: 1rem;
-  max-width: 540px;
+  max-width: 500px;
+  margin-bottom: 2rem;
 }
 
-/* Buttons */
+/* Glowing Buttons */
 .hero-buttons {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.8rem 1.6rem;
-  border-radius: 8px;
+  padding: 0.85rem 1.8rem;
+  border-radius: 6px;
   font-weight: 600;
   text-decoration: none;
   color: #ffffff;
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #00d2ff 0%, #0072ff 100%);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
 }
 
 .btn:hover {
-  background-color: #1d4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.7);
 }
 
-/* Right Side: Profile Image */
-.hero-image {
+.btn-outline {
+  background: transparent;
+  border: 1px solid #00d2ff;
+  color: #00d2ff;
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 210, 255, 0.1);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+/* Angular Glowing Line Separator (Like Reference) */
+.hero-diagonal-divider {
+  width: 2px;
+  height: 380px;
+  background: linear-gradient(180deg, transparent, #00d2ff, #0072ff, transparent);
+  box-shadow: 0 0 12px #00d2ff;
+  position: relative;
+  transform: rotate(12deg);
+  margin: 0 20px;
+}
+
+/* Right Side: Angular Cut Photo Frame */
+.hero-image-wrapper {
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.image-frame-glow {
+  position: relative;
+  padding: 4px;
+  background: linear-gradient(135deg, #00d2ff, transparent, #0072ff);
+  /* Creates the sharp angled corners seen in the reference */
+  clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 15% 100%, 0 85%);
+  filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.image-frame-glow:hover {
+  filter: drop-shadow(0 0 30px rgba(0, 210, 255, 0.7));
 }
 
 .profile-photo {
-  width: 320px;
-  height: 320px;
+  width: 340px;
+  height: 420px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #38bdf8;
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
-  transition: transform 0.3s ease;
+  display: block;
+  background-color: #0d1527;
+  /* Matches inner shape to outer glowing border */
+  clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 15% 100%, 0 85%);
 }
 
-.profile-photo:hover {
-  transform: scale(1.03);
-}
-
-/* Responsive Design for Mobile & Tablets */
+/* Responsive Mobile Layout */
 @media (max-width: 968px) {
   .hero-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
-    gap: 2.5rem;
+  }
+
+  .hero-diagonal-divider {
+    display: none;
   }
 
   .hero-text p {
@@ -144,21 +171,16 @@
     justify-content: center;
   }
 
-  .hero-image {
+  .hero-image-wrapper {
     order: -1;
-    /* Shows image above text on smaller screens */
   }
 
   .profile-photo {
-    width: 240px;
-    height: 240px;
+    width: 280px;
+    height: 340px;
   }
 
   .hero-text h1 {
     font-size: 2.5rem;
-  }
-
-  .hero-text h2 {
-    font-size: 1.4rem;
   }
 }

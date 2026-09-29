@@ -1,7 +1,7 @@
 import "./Projects.css";
 
 import calculatorImage from "../../assets/calculator.png";
-import portfolioImage from "../../assets/profile.png";
+import portfolioImage from "../../assets/portfolio.png";
 
 function Projects() {
   const projects = [
