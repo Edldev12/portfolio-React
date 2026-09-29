@@ -1,0 +1,17 @@
+:root {
+  /* Main colors */
+  --bg-dark: #070c1b;
+  --card-bg: #0d152a;
+
+  /* Neon cyan accent */
+  --accent-blue: #00d2ff;
+  --accent-blue-hover: #00b8e6;
+  --accent-glow: rgba(0, 210, 255, 0.25);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #8a99ad;
+
+  /* Borders */
+  --border-color: #1e2d4a;
+}
