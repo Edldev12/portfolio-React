@@ -16,7 +16,7 @@ function Home() {
             Hi, I'm <span>Edlawit Tsegaye</span>
           </h1>
 
-          <h2>Software Engineering Student</h2>
+          <h2><span>Software Engineering </span>Student</h2>
 
           <p>
             I build modern web applications and enjoy solving
