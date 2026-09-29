@@ -1,5 +1,5 @@
 import StarfieldVisual from "../../components/hero/StarfieldVisual";
-import profileImage from "./assets/photo.png";
+import profileImage from "../../assets/photo.png";
 import "./Home.css";
 
 function Home() {
