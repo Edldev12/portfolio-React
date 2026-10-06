@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Projects.css";
-
+import AddisEatsImage from "../../assets/Addis_eats.png";
+import EcommerceImage from "../../assets/ecommerc.png";
+import comodoImage from "../../assets/comobo.png";
 import calculatorImage from "../../assets/calculator.png";
 import portfolioImage from "../../assets/portfolio.png";
 
@@ -8,6 +10,33 @@ function Projects() {
   const [showAll, setShowAll] = useState(false);
 
   const projects = [
+    {
+      title: "🍽️ Addis Eats",
+      image: AddisEatsImage,
+      description:
+        "A food-ordering React application for browsing dishes, searching by category, managing favorites and cart items, signing in, and placing orders.",
+      technology: "React, Zustand, React Router, JavaScript",
+      github: "https://github.com/Edldev12/addis_eats_react",
+      demo: "https://addis-eats-react-beryl.vercel.app/",
+    },
+    {
+      title: "🛒 Ecommerce Project",
+      image: EcommerceImage,
+      description:
+        "A full-stack ecommerce application with product browsing, cart management, checkout, order history, and reorder functionality.",
+      technology: "React, JavaScript, CSS",
+      github: "https://github.com/Edldev12/Ecommerce-project",
+      demo: "https://edlawit-ecommercevercelapp.vercel.app/",
+    },
+    {
+      title: "🍹 Comodo Juice House",
+      image: comodoImage,
+      description:
+        "A responsive juice ordering app with menu browsing, search, filtering, favorites, cart, checkout, order history, dark mode, localStorage, and responsive design.",
+      technology: "HTML, CSS, JavaScript, LocalStorage",
+      github: "https://github.com/Edldev12/Comodo-juice-house",
+      demo: "https://edldev12.github.io/Comodo-juice-house/",
+    },
     {
       title: "🧮 Calculator Web App",
       image: calculatorImage,
@@ -47,15 +76,6 @@ function Projects() {
     },
 
     {
-      title: "🛒 Ecommerce Project",
-      description:
-        "A full-stack ecommerce application with product browsing, cart management, checkout, order history, and reorder functionality.",
-      technology: "React, JavaScript, CSS",
-      github: "https://github.com/Edldev12/Ecommerce-project",
-      demo: null,
-    },
-
-    {
       title: "📦 Product Data Management System",
       description:
         "A JavaScript application for fetching, displaying, searching, filtering, and analyzing product data.",
@@ -70,15 +90,6 @@ function Projects() {
       description:
         "A chatbot application built with React and Express that communicates with a local Ollama AI model.",
       technology: "React, Express, Ollama, JavaScript",
-      github: null,
-      demo: null,
-    },
-
-    {
-      title: "🍽️ Addis Eats",
-      description:
-        "A food-ordering React application for browsing dishes, searching by category, managing favorites and cart items, signing in, and placing orders.",
-      technology: "React, Zustand, React Router, JavaScript",
       github: null,
       demo: null,
     },
