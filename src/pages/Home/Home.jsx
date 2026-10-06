@@ -1,5 +1,5 @@
 import StarfieldVisual from "../../components/hero/StarfieldVisual";
-import profileImage from "../../assets/photo.png";
+import profileImage from "../../assets/edlimg.jpg";
 import "./Home.css";
 
 function Home() {
@@ -22,6 +22,7 @@ function Home() {
           <div className="hero-buttons">
             <a href="#projects" className="btn">View Projects &rarr;</a>
             <a href="#contact" className="btn btn-outline">Let's Connect</a>
+            <a href="/Edlawit_Tsegaye_Software_CV.pdf" className="btn btn-outline" target="_blank" rel="noopener noreferrer">Download CV</a>
           </div>
         </div>
 
