@@ -5,6 +5,7 @@ import EcommerceImage from "../../assets/ecommerc.png";
 import comodoImage from "../../assets/comobo.png";
 import calculatorImage from "../../assets/calculator.png";
 import portfolioImage from "../../assets/portfolio.png";
+import chatbotImage from "../../assets/chatbot.png";
 
 function Projects() {
   const [showAll, setShowAll] = useState(false);
@@ -27,6 +28,23 @@ function Projects() {
       technology: "React, JavaScript, CSS",
       github: "https://github.com/Edldev12/Ecommerce-project",
       demo: "https://edlawit-ecommercevercelapp.vercel.app/",
+    },
+    {
+      title: "🤖 AI Chatbot",
+      image: chatbotImage,
+      description:
+        "A full-stack AI chatbot built with React, Vite, Node.js, and Express, featuring Groq-powered responses, user authentication, and session management.",
+      technologies: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Node.js",
+        "Express.js",
+        "Groq API",
+        "SQLite"
+      ],
+      github: "https://github.com/Edldev12/Chatbot",
+      live: "https://chatbot-git-main-edlawit-tsegaye.vercel.app",
     },
     {
       title: "🍹 Comodo Juice House",
@@ -82,15 +100,6 @@ function Projects() {
       technology: "JavaScript, HTML, CSS, DummyJSON API",
       github:
         "https://github.com/Edldev12/Product-Data-Management-System",
-      demo: null,
-    },
-
-    {
-      title: "🤖 AI Chatbot",
-      description:
-        "A chatbot application built with React and Express that communicates with a local Ollama AI model.",
-      technology: "React, Express, Ollama, JavaScript",
-      github: null,
       demo: null,
     },
 
