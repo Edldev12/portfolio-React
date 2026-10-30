@@ -12,6 +12,7 @@ import {
   SiSpringboot,
   SiMysql,
   SiTailwindcss,
+  SiTypescript,
   SiVite,
   SiCplusplus,
   SiNextdotjs,
@@ -37,6 +38,12 @@ export const skills = [
     level: 80,
   },
   {
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "#3178C6",
+    level: 60,
+  },
+  {
     name: "React",
     icon: FaReact,
     color: "#61DAFB",
@@ -46,7 +53,7 @@ export const skills = [
     name: "Next.js",
     icon: SiNextdotjs,
     color: "#61daf8",
-    level: 60,
+    level: 70,
   },
   {
     name: "Spring Boot",
@@ -76,7 +83,7 @@ export const skills = [
     name: "Tailwind CSS",
     icon: SiTailwindcss,
     color: "#06B6D4",
-    level: 75,
+    level: 80,
   },
   {
     name: "MySQL",
@@ -88,7 +95,7 @@ export const skills = [
     name: "Git & GitHub",
     icon: FaGitAlt,
     color: "#F05032",
-    level: 80,
+    level: 85,
   },
   {
     name: "Vite",

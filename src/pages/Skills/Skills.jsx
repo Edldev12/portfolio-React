@@ -12,8 +12,7 @@ function Skills() {
         </h2>
 
         <p>
-          Technologies and tools I use to build modern,
-          scalable, and user-focused applications.
+          Technologies and tools I use to build modern, responsive, scalable, and user-focused applications.
         </p>
       </div>
 
