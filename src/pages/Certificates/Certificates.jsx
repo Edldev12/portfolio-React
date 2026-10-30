@@ -1,3 +1,4 @@
+
 import "./Certificates.css";
 
 function Certificates() {
@@ -61,6 +62,34 @@ function Certificates() {
           </a>
         </div>
 
+        {/* BE-XPERT Frontend Development Certificate */}
+        <div className="certificate-card">
+          <img
+            src="/certeficate/front.png"
+            alt="Frontend Development Certificate"
+          />
+
+          <h3>Frontend Development Certificate</h3>
+
+          <p>
+            Successfully completed a 3-month Frontend Development
+            course at BE-XPERT, gaining practical experience in
+            building responsive and user-friendly web applications.
+          </p>
+
+          <p>
+            <strong>Issued by:</strong> BE-XPERT
+          </p>
+          <a
+            href=".\certeficate\BEX-fontend-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="certificate-btn"
+          >
+            📄 View Certificate
+          </a>
+        </div>
+
         {/* Current Certifications */}
         <div className="certificate-card current-certificates">
           <div className="certificate-placeholder">
@@ -70,9 +99,8 @@ function Certificates() {
           <h3>Currently Learning</h3>
 
           <p>
-            I am currently working on developing my software
-            engineering skills and completing professional
-            certifications.
+            I am continuously developing my software engineering
+            skills and working toward new professional certifications.
           </p>
         </div>
 
