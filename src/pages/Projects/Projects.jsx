@@ -6,6 +6,9 @@ import comodoImage from "../../assets/comobo.png";
 import calculatorImage from "../../assets/calculator.png";
 import portfolioImage from "../../assets/portfolio.png";
 import chatbotImage from "../../assets/chatbot.png";
+import snakeImage from "../../assets/snake game.jpg";
+import EdlshopImage from "../../assets/Edl Shop.png";
+import SheggerWheel from "../../assets/Sheger wheel.png"
 
 function Projects() {
   const [showAll, setShowAll] = useState(false);
@@ -111,6 +114,33 @@ function Projects() {
       github: null,
       demo: null,
     },
+    {
+      title: "🐍 Snake Game",
+      image: snakeImage,
+      description:
+        "A classic Snake Game developed using Python, featuring keyboard controls, snake movement, food collection, and score tracking.",
+      technology: "Python, Turtle Graphics",
+      github: "https://github.com/Edldev12/snake-game",
+      demo: null,
+    },
+    {
+      title: "🛍️ Edl Shop",
+      image: EdlshopImage,
+      description:
+        "A modern e-commerce web application featuring product browsing, shopping cart functionality, user authentication, and an admin dashboard.",
+      technology: "Next.js, React, TypeScript, Tailwind CSS",
+      //github: "https://github.com/Edldev12/eccommerce",
+      demo: "be-xpert-store-sigma.vercel.app",
+    },
+    {
+      title: "🚗 Sheggar Wheels",
+      image: SheggerWheel,
+      description:
+        "A car rental marketplace that allows users to explore vehicles, search and filter listings, manage bookings, and access owner and admin dashboards.",
+      technology: "Next.js, React, JavaScript, Tailwind CSS",
+      //github: "https://github.com/Edldev12/Sheggar-Wheels",
+      demo: "https://sheggar-wheels.vercel.app",
+    },
   ];
 
   const visibleProjects = showAll
@@ -178,7 +208,7 @@ function Projects() {
           className="view-projects-btn"
           onClick={() => setShowAll(!showAll)}
         >
-          {showAll ? "Show Less" : "View All Projects"}
+          {showAll ? "Show Less" : `View All Projects (${projects.length})`}
         </button>
       </div>
     </section>
