@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./Contact.css";
 
@@ -8,22 +9,59 @@ function Contact() {
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Connect your backend API, EmailJS, or Formspree logic here
-    console.log("Form Submitted:", formData);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xzeeoylj",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+        setErrorMessage(
+          result.errors?.map((error) => error.message).join(", ") ||
+          "Something went wrong. Please try again."
+        );
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage(
+        "Unable to send your message. Please check your internet connection."
+      );
+    }
   };
 
   return (
@@ -35,7 +73,6 @@ function Contact() {
       </p>
 
       <div className="contact-container">
-        {/* Contact Links */}
         <div className="contact-info">
           <p>
             📧 <strong>Email:</strong>{" "}
@@ -67,12 +104,18 @@ function Contact() {
           </p>
         </div>
 
-        {/* Contact Form */}
         <div className="contact-form-wrapper">
-          {submitted ? (
-            <p className="success-message">
-              Thank you! Your message has been sent successfully.
-            </p>
+          {status === "success" ? (
+            <div className="success-message">
+              <p>✅ Thank you! Your message has been sent successfully.</p>
+              <button
+                type="button"
+                onClick={() => setStatus("idle")}
+                className="submit-btn"
+              >
+                Send Another Message
+              </button>
+            </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
@@ -111,11 +154,21 @@ function Contact() {
                   onChange={handleChange}
                   placeholder="Your Message"
                   required
-                ></textarea>
+                />
               </div>
 
-              <button type="submit" className="submit-btn">
-                Send Message
+              {status === "error" && (
+                <p className="error-message" role="alert">
+                  ❌ {errorMessage}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                className="submit-btn"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending..." : "Send Message"}
               </button>
             </form>
           )}
