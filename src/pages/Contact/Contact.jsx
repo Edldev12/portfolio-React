@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
 function Contact() {
@@ -11,6 +12,7 @@ function Contact() {
 
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [autoReplyFailed, setAutoReplyFailed] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,8 +28,10 @@ function Contact() {
 
     setStatus("sending");
     setErrorMessage("");
+    setAutoReplyFailed(false);
 
     try {
+      // 1. Send the visitor's message to Formspree
       const response = await fetch(
         "https://formspree.io/f/xzeeoylj",
         {
@@ -42,24 +46,43 @@ function Contact() {
 
       const result = await response.json();
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        setStatus("error");
-        setErrorMessage(
+      if (!response.ok) {
+        throw new Error(
           result.errors?.map((error) => error.message).join(", ") ||
-          "Something went wrong. Please try again."
+          "Unable to submit your message."
         );
       }
-    } catch {
+
+      // 2. Send an automatic thank-you email using EmailJS
+      try {
+        await emailjs.send(
+          "service_rs1at1u",
+          "template_ym0qxz4",
+          {
+            to_email: formData.email,
+            from_name: formData.name,
+          },
+          "bE8cEcdj4XXhngHkA"
+        );
+      } catch (error) {
+        console.error("EmailJS error:", error);
+        setAutoReplyFailed(true);
+      }
+
+      // 3. Reset the form
+      setStatus("success");
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+    } catch (error) {
       setStatus("error");
       setErrorMessage(
-        "Unable to send your message. Please check your internet connection."
+        error.message ||
+        "Unable to send your message. Please try again."
       );
     }
   };
@@ -69,10 +92,13 @@ function Contact() {
       <h2>Contact Me</h2>
 
       <p className="contact-intro">
-        If you would like to work with me or discuss a project, feel free to contact me.
+        If you would like to work with me or discuss a project,
+        feel free to contact me.
       </p>
 
       <div className="contact-container">
+
+        {/* Contact Information */}
         <div className="contact-info">
           <p>
             📧 <strong>Email:</strong>{" "}
@@ -104,20 +130,44 @@ function Contact() {
           </p>
         </div>
 
+        {/* Contact Form */}
         <div className="contact-form-wrapper">
+
           {status === "success" ? (
-            <div className="success-message">
-              <p>✅ Thank you! Your message has been sent successfully.</p>
+            <div className="success-message" role="status">
+              <p>
+                ✅ Thank you! Your message has been sent successfully.
+              </p>
+
+              {autoReplyFailed && (
+                <p className="error-message">
+                  Your message reached me, but the automatic
+                  confirmation email could not be sent.
+                </p>
+              )}
+
+              {!autoReplyFailed && (
+                <p>
+                  📧 A confirmation email has been sent to your inbox.
+                </p>
+              )}
+
               <button
                 type="button"
-                onClick={() => setStatus("idle")}
                 className="submit-btn"
+                onClick={() => {
+                  setStatus("idle");
+                  setAutoReplyFailed(false);
+                }}
               >
                 Send Another Message
               </button>
             </div>
           ) : (
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
               <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input
@@ -127,6 +177,7 @@ function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
+                  autoComplete="name"
                   required
                 />
               </div>
@@ -140,6 +191,7 @@ function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your Email"
+                  autoComplete="email"
                   required
                 />
               </div>
@@ -168,10 +220,13 @@ function Contact() {
                 className="submit-btn"
                 disabled={status === "sending"}
               >
-                {status === "sending" ? "Sending..." : "Send Message"}
+                {status === "sending"
+                  ? "Sending..."
+                  : "Send Message"}
               </button>
             </form>
           )}
+
         </div>
       </div>
     </section>
